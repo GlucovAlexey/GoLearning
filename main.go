@@ -5,15 +5,16 @@ import "fmt"
 func main() {
 	var num int
 	fmt.Scan(&num)
-
+	first := num / 100000
+	seconf := num / 10000 % 10
+	third := num / 1000 % 10
+	forth := num / 100 % 10
+	fifth := num / 10 % 10
+	sixth := num % 10
 	switch {
-	case 9 < num && num < 100:
-		fmt.Print(num / 10)
-	case 99 < num && num < 1000:
-		fmt.Print(num / 100)
-	case 999 < num && num < 10000:
-		fmt.Print(num / 1000)
+	case (first + seconf + third) == (forth + fifth + sixth):
+		fmt.Print("YES")
 	default:
-		fmt.Print(num)
+		fmt.Print("NO")
 	}
 }
