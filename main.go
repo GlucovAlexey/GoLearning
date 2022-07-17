@@ -3,16 +3,17 @@ package main
 import "fmt"
 
 func main() {
-	var num string
+	var num int
 	fmt.Scan(&num)
-	var a = num[0]
-	var b = num[1]
-	var c = num[2]
 
 	switch {
-	case a != b && b != c && c != a:
-		fmt.Print("YES")
+	case 9 < num && num < 100:
+		fmt.Print(num / 10)
+	case 99 < num && num < 1000:
+		fmt.Print(num / 100)
+	case 999 < num && num < 10000:
+		fmt.Print(num / 1000)
 	default:
-		fmt.Print("NO")
+		fmt.Print(num)
 	}
 }
