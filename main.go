@@ -1,19 +1,22 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
-	var num, res, greate int
-	num = 1
-	for num != 0 {
-		fmt.Scan(&num)
-		if greate < num {
-			greate = num
-			res = 0
-		}
-		if greate == num {
-			res++
+	var a, b, c, d int
+	fmt.Scan(&a, &b)
+	for a > 0 {
+		d = a % 10
+		a = a / 10
+		c = b
+		for c > 0 {
+			if c%10 == d {
+				fmt.Print(d, " ")
+				break
+			}
+			c = c / 10
 		}
 	}
-	fmt.Print(res)
 }
