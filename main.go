@@ -1,22 +1,31 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func main() {
-	var a, b, c, d int
-	fmt.Scan(&a, &b)
-	for a > 0 {
-		d = a % 10
-		a = a / 10
-		c = b
-		for c > 0 {
-			if c%10 == d {
-				fmt.Print(d, " ")
+	var x int
+	var y int
+	var k int
+	fmt.Scan(&x)
+	fmt.Scan(&y)
+	for j := 1000; x/j >= 0; j = (j / 10) {
+		if x/j == 0 {
+			continue
+		}
+		k = (x / j) % 10
+		for i := 1000; y/i >= 0; i = (i / 10) {
+			if y/i == 0 {
+				continue
+			}
+			if k == (y/i)%10 {
+				fmt.Print(k, " ")
+			}
+			if i == 1 {
 				break
 			}
-			c = c / 10
+		}
+		if j == 1 {
+			break
 		}
 	}
 }
