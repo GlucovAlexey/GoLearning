@@ -3,29 +3,24 @@ package main
 import "fmt"
 
 func main() {
-	var x int
-	var y int
-	var k int
-	fmt.Scan(&x)
-	fmt.Scan(&y)
-	for j := 1000; x/j >= 0; j = (j / 10) {
-		if x/j == 0 {
-			continue
-		}
-		k = (x / j) % 10
-		for i := 1000; y/i >= 0; i = (i / 10) {
-			if y/i == 0 {
-				continue
-			}
-			if k == (y/i)%10 {
-				fmt.Print(k, " ")
-			}
-			if i == 1 {
-				break
-			}
-		}
-		if j == 1 {
-			break
-		}
+	workArray := [10]uint8{}
+	var a uint8
+	for i := 0; i < 10; i++ {
+		fmt.Scan(&a)
+		workArray[i] = a
+	}
+	array := [6]uint8{}
+	var b uint8
+	for i := 0; i < 6; i++ {
+		fmt.Scan(&b)
+		array[i] = b
+	}
+	workArrayCopy := workArray
+	for i := 0; i < 5; i += 2 {
+		workArray[array[i]] = workArrayCopy[array[i+1]]
+		workArray[array[i+1]] = workArrayCopy[array[i]]
+	}
+	for i := 0; i < 10; i++ {
+		fmt.Print(workArray[i], " ")
 	}
 }
